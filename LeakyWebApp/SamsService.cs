@@ -1,10 +1,12 @@
 class SamsService : ISamsService
 {
     private Audit? _audit;
+    private Audit? _previousAudit;
 
     public void DoIt(string message)
     {
-        _audit = new Audit(_audit, message);
+        _previousAudit = _audit;
+        _audit = new Audit(message);
     }
 
 }
